@@ -1,0 +1,24 @@
+[project]
+name = "reactor"
+version = "0.1.0"
+description = "The arc reactor: a wearable voice client for JARVIS MK3"
+requires-python = ">=3.11"
+dependencies = [
+    "websockets>=13",
+    "numpy>=1.26",
+    "onnxruntime>=1.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["reactor"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

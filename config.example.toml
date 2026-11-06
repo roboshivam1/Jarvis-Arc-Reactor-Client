@@ -1,0 +1,40 @@
+# Copy to ~/.config/reactor/config.toml and keep only the lines you change.
+# Every setting below is shown with its default.
+
+core_url = "wss://jarvis-core.tail831914.ts.net/ws/client"
+token_file = "~/.jarvis_token"
+label = "arc reactor"
+log_level = "INFO"
+transcript_timeout_s = 25.0
+
+[wake]
+models_dir = "~/reactor/models"
+model = "hey_jarvis_v0.1.onnx"
+threshold = 0.5          # raise if it wakes by itself, lower if it misses you
+refractory_s = 2.0
+barge_in = true          # "hey jarvis" while he talks cuts him off
+enabled = true           # start with the wake word on (the toggle button flips it)
+
+[listen]
+start_timeout_s = 5.0    # time to start talking after the chime
+end_silence_s = 0.9      # the pause that ends a question
+max_s = 20.0
+preroll_s = 0.3
+ignore_s = 0.3
+speech_margin_db = 10.0
+speech_floor_dbfs = -50.0
+
+[audio]
+mic = "auto"             # or a name from `python -m reactor check`
+speaker = "auto"
+bluetooth_mic = true     # use the earphones' mic (call-quality sound)
+lead_in_ms = 300
+tail_ms = 250
+chimes = true
+
+[buttons]
+enabled = true
+device = "AVRCP"                               # part of the input device's name
+talk = ["playpause", "play", "pause"]          # start a question; again to send now
+toggle = "next"                                # wake word on / off
+cancel = "previous"                            # drop the question, or stop JARVIS

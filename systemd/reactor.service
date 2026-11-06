@@ -1,0 +1,14 @@
+[Unit]
+Description=Arc reactor - JARVIS voice client
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire-pulse.service wireplumber.service
+
+[Service]
+WorkingDirectory=%h/reactor
+ExecStart=%h/reactor/.venv/bin/python -m reactor
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
