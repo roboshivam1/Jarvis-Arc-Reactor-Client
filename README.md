@@ -79,4 +79,3 @@ systemctl --user daemon-reload
 systemctl --user enable --now reactor
 journalctl --user -u reactor -f
 ```
-# Jarvis-Arc-Reactor-Client
